@@ -2,7 +2,7 @@ pipeline {
     agent {
         kubernetes {
             yamlFile 'agent.yaml'
-            defaultContainer 'docker'
+            defaultContainer 'build'
         }
     }
     stages {

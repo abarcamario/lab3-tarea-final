@@ -11,8 +11,8 @@ spec:
       limits:
         memory: "512Mi"
         cpu: "512m"
-  - name: docker
-    image: docker:24.0.5-cli
+  - name: build
+    image: abarcamario/jenkins-agent:1.0
     command: ["cat"]
     tty: true
     volumeMounts:

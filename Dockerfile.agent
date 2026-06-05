@@ -1,0 +1,9 @@
+# Imagen base con Node.js
+FROM node:18-alpine
+
+# Instalar Docker CLI y kubectl
+RUN apk add --no-cache docker-cli curl bash \
+    && curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" \
+    && install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+
+WORKDIR /home/jenkins/agent
