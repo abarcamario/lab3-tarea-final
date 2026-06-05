@@ -41,7 +41,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 withCredentials([file(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
-                    sh "kubectl set image deployment/app-mario-abarca app=abarcamario/tarea-final:${VERSION} -n ns-mario-abarca"
+                    // Aquí usamos el nombre correcto del contenedor
+                    sh "kubectl set image deployment/app-mario-abarca app-mario-abarca=abarcamario/tarea-final:${VERSION} -n ns-mario-abarca"
                     sh 'kubectl rollout status deployment/app-mario-abarca -n ns-mario-abarca'
                 }
             }
