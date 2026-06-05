@@ -8,12 +8,14 @@ pipeline {
     stages {
         stage('Install') {
             steps {
-                sh 'npm install'
+                // Instala pnpm de forma global y luego las dependencias del proyecto
+                sh 'npm install -g pnpm && pnpm install'
             }
         }
         stage('Test') {
             steps {
-                sh 'npm test || echo "No tests definidos"'
+                // Ejecuta los tests usando pnpm
+                sh 'pnpm run test || echo "No tests definidos"'
             }
         }
         stage('Build') {
