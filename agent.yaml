@@ -14,12 +14,17 @@ spec:
   - name: docker
     image: docker:24.0.5-dind
     command: ["dockerd-entrypoint.sh"]
-    args: ["--host=tcp://0.0.0.0:2375"]
+    args: ["--host=tcp://0.0.0.0:2375", "--host=unix:///var/run/docker.sock"]
     securityContext:
       privileged: true
     volumeMounts:
     - name: docker-sock
       mountPath: /var/run/docker.sock
+  nodeSelector:
+    kubernetes.io/os: "linux"
+  restartPolicy: Never
   volumes:
   - name: docker-sock
-    emptyDir: {}
+    hostPath:
+      path: /var/run/docker.sock
+      type: Socket
