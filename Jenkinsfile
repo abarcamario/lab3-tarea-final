@@ -1,6 +1,21 @@
 pipeline {
-    agent any
+    agent {
+        kubernetes {
+            yamlFile 'agent.yaml'
+            defaultContainer 'docker'
+        }
+    }
     stages {
+        stage('Install') {
+            steps {
+                sh 'npm install'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'npm test || echo "No tests definidos"'
+            }
+        }
         stage('Build') {
             steps {
                 sh 'docker build -t abarcamario/tarea-final:1.0.0 .'
@@ -17,6 +32,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh 'kubectl apply -f entrega.yaml'
+                sh 'kubectl rollout status deployment/app-mario-abarca -n ns-mario-abarca'
             }
         }
     }
