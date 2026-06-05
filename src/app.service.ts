@@ -25,7 +25,7 @@ export class AppService {
         </head>
         <body>
           <h1>Laboratorio 3 - CI/CD en Kubernetes</h1>
-          <p>Este es el desarrollo del Laboratorio 3 en Kubernetes realizado por <strong>Mario Andrés Abarca Barrios</strong></p>
+          <p>Este es el desarrollo del Laboratorio 3 en Kubernetes realizado por <strong>Mario Andres Abarca Barrios</strong></p>
         </body>
       </html>
     `;
