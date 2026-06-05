@@ -1,5 +1,5 @@
 # Imagen base más liviana con Node.js
-FROM node:18-alpine
+FROM node:20-alpine
 
 # Crear directorio de trabajo
 WORKDIR /app
