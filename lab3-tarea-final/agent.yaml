@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    jenkins: "agent"
+spec:
+  containers:
+  - name: jnlp
+    image: jenkins/inbound-agent:latest
+    resources:
+      limits:
+        memory: "512Mi"
+        cpu: "512m"
+  - name: build
+    image: abarcamario/jenkins-agent:1.0
+    command: ["cat"]
+    tty: true
+    volumeMounts:
+    - name: docker-sock
+      mountPath: /var/run/docker.sock
+    - name: workspace-volume
+      mountPath: /home/jenkins/agent
+  volumes:
+  - name: docker-sock
+    hostPath:
+      path: /var/run/docker.sock
+      type: Socket
+  - name: workspace-volume
+    emptyDir: {}

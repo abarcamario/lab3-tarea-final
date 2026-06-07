@@ -1,0 +1,6 @@
+<html><head><meta http-equiv='refresh' content='1;url=/login?from=%2Fjob%2Flab3-tarea-final%2F15%2FconsoleText'/><script id='redirect' data-redirect-url='/login?from=%2Fjob%2Flab3-tarea-final%2F15%2FconsoleText' src='/static/cc2b6932/scripts/redirect.js'></script></head><body style='background-color:white; color:white;'>
+Authentication required
+<!--
+-->
+
+</body></html>                                                                                                                                                                                                                                                                                                            
